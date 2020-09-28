@@ -2,6 +2,7 @@ package emitter
 
 import (
 	"github.com/vmihailenco/msgpack/v5"
+	"github.com/go-redis/redis/v8"
 	"context"
 )
 

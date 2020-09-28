@@ -6,7 +6,10 @@ Golang version of [socket.io-emitter](https://github.com/Automattic/socket.io-em
 ## How to use
 
 ```go
-import "github.com/go-redis/redis/v8"
+import (
+	"github.com/go-redis/redis/v8"
+	emitter "github.com/tkhatri1/socket.io-emitter-go"
+)
 
 rdb := redis.NewClient(&redis.Options{
   Addr:     "localhost:6379",
@@ -14,9 +17,9 @@ rdb := redis.NewClient(&redis.Options{
   DB:       0,
 })
 
-Emitter{Redis: rdb}.Of("/").In("chat_roome_1").In("chat_room_2").Emit("event_name", map[string]interface{}{"sample": "data"})
+emitter.Emitter{Redis: rdb}.Of("/").In("chat_roome_1").In("chat_room_2").Emit("event_name", map[string]interface{}{"sample": "data"})
 
-With namespace
+** ** With namespace
 
-Emitter{Redis: rdb}.Of("/namespace").In("chat_roome_1").In("chat_room_2").Emit("event_name", map[string]interface{}{"sample": "data"})
+emitter.Emitter{Redis: rdb}.Of("/namespace").In("chat_roome_1").In("chat_room_2").Emit("event_name", map[string]interface{}{"sample": "data"})
 ```
